@@ -25,34 +25,6 @@ routes.use(express.static(assetFolder));
       .catch(function(error){
         if (error.message === 'No such work found'){
           switch (workType){
-            case "Games":
-              api.gameSearcher(workTitle)
-                .then(function(gameData){
-                  res.status(200).send(gameData);
-                  //even for pure giberish searches, something almost always comes back if the code
-                  //ran correctly.
-                })
-                .catch(function(error){
-                  console.error("Error with the games API handler: ", error);
-                  res.status(500);
-                });
-              break;
-            case "Movies":
-              api.movieSearcher(workTitle)
-                .then(function(movieData){
-                  if (movieData.Response !== 'False'){
-                    res.status(200).send(movieData);
-                  }
-                  else{
-                    console.error("IMDB couldn't find a movie by that name");
-                    res.status(404);
-                  }
-                })
-                .catch(function(error){
-                  console.error("Error with the movies API handler: ", error);
-                  res.status(500);
-                })
-              break;
             case "Books":
               api.bookSearcher(workTitle)
                 .then(function(bookData){
@@ -74,7 +46,7 @@ routes.use(express.static(assetFolder));
   })
 
 
-//rest of flow: 
+//rest of flow:
     //1) server sends response
     //2) client confirms with user.
     //3) Client sends POST to api/works
@@ -106,7 +78,7 @@ routes.use(express.static(assetFolder));
       .then(function(newTags){
         console.log('newTags to add', newTags);
           return db.addTags(req.body)
-        
+
       })
       .then(function(added){
         console.log('before findWorks ', added)
@@ -148,7 +120,7 @@ routes.use(express.static(assetFolder));
   })
 
   routes.post('/api/getRev', function(req, res) {
-    
+
   })
   // The Catch-all Route
   // This is for supporting browser history pushstate.

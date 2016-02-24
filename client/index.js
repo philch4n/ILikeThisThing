@@ -5,18 +5,15 @@ var app = angular.module('ILikeThis.homepage', []);
 app.controller('RequestController', function($scope, $location, Factory, Globals) {
 
 //different types to populate the dropdown menu
-$scope.types = ['Books', 'Movies', 'Games'];
 $scope.clicked = false;
 //create an empty object to store form data
 $scope.userInput = {
   title: '',
-  type: ''
+  type: 'Books'
 };
 
-$scope.user = {}
-
 $scope.submitForm = function() {
- 
+
   Factory.submitForm($scope.userInput)
     .then(function successCallback(response) {
       // this callback will be called asynchronously
@@ -27,10 +24,11 @@ $scope.submitForm = function() {
       };
 
       $scope.results = response.data;
-      console.log($scope.results);
+      console.log('=====', $scope.results)
+
     })
   };
- 
+
  $scope.alreadyExists = function(title) {
   Globals.storeTitle(title);
   //now reroute to madlibs
@@ -77,8 +75,7 @@ $scope.addToDb = function(apiResp) {
 
  };
 
- 
+
 
 
 });
-

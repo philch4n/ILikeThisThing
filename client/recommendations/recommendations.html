@@ -14,22 +14,6 @@
     <p class="shadowText">Pages: {{rec.bookData.pageCount}}</p>
     </div>
 
-    <div ng-show="rec.type === 'Movies'">
-    <p class="shadowText">Tag: {{rec.tag}}</p>
-    <br></br>
-    <p class="shadowText">Title: <button ng-click="seeMore(rec)">{{rec.title}}</button></p>
-    <p class="shadowText">Director: {{rec.director}}</p>
-    <p class="shadowText">Genre(s): {{rec.movieData.genre}}</p>
-    <img class="cover" ng-src="{{rec.movieImage}}">
-    <p class="shadowText">Year: {{rec.movieData.Year}}</p>
-    </div>
-
-    <div ng-show="rec.type === 'Games'">
-    <p class="shadowText">Tag: {{rec.tag}}</p>
-    <br></br>
-    <p class="shadowText">Title: <button ng-click="seeMore(rec)">{{rec.title}}</button></p>
-    <img class="cover" ng-src="{{rec.gameData.largeImage}}">
-    </div>
   </section>
 
 <h4 ng-show="recs.length === 0"> We don't have any recomendations for that title yet.</h4>
