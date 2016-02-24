@@ -50,8 +50,14 @@
  </header>
 
 <body>
+  <script src="app.js"></script>
+  <script src="index.js"></script>
+  <script src="factory.js"></script>
+  <script src="madlibs/madLibs.js"></script>
+  <script src="recommendations/recommendations.js"></script>
+  <script src="individualTitle/individualTitle.js"></script>
 
-<ul ng-hide="clicked">
+<ul ng-hide="clicked" style="list-style-type:none">
   <div class="" style="background-color:white; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
       <li ng-repeat="result in results">
       <span class="shadowText">
@@ -111,12 +117,6 @@
 
 </ul>
 
- <script src="app.js"></script>
- <script src="index.js"></script>
- <script src="factory.js"></script>
- <script src="madlibs/madLibs.js"></script>
- <script src="recommendations/recommendations.js"></script>
- <script src="individualTitle/individualTitle.js"></script>
 
 <div ng-view></div>
 
