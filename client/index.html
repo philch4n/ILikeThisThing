@@ -3,7 +3,6 @@
 <div class="all">
 <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0-beta1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.5.0/angular-route.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"/>
     <link rel="stylesheet" href="index.css">
@@ -13,9 +12,6 @@
 <div ng-app="ILikeThis.homepage">
 <div ng-controller="RequestController as request">
 
-  <a class="navbar-brand" href="/">
-    <img alt="Brand" id="logo" src="images/blue-shell3.png">
-  </a>
   <form id="header-signin">
       <input type="text" class="form-control" placeholder="Username"/>
       <input type="password" placeholder="Password"/>
@@ -23,8 +19,11 @@
   </form>
 
  <header id="top" class="header" style="text-align: center">
-    <h1 class="animated fadeInDown">I LIKE THIS</h1>
-    <h3 class="animated fadeInDown">Find your new favorite book, movie, or videogame!</h3>
+   <div>
+    <h1 class="animated fadeInDown">Welcome to BlueShell.io <a class="navbar-brand" href="/">
+          <img alt="Brand" id="logo" src="images/blue-shell3.png">
+        </a></h1>
+  </div>
     <br>
 
     <form name="titleAndTypeSubmissionForm" novalidate>
@@ -53,11 +52,7 @@
 <body>
 
 <ul ng-hide="clicked">
-    <h4 ng-show="results[0].workNotFound === true" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Ruh Roh! You don't like that thing. You know why? Because it doesnt EXIST, you stupid idiot. Try searching for something else!</h4>
-    <div class="question" ng-show="results.length > 1" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Sweet. Just so we're sure, which of these works did you mean?</div>
-    <br>
-
-    <div class="" style="background-color:maroon; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
+  <div class="" style="background-color:white; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
       <li ng-repeat="result in results">
       <span class="shadowText">
         <div class="inDbAlready" ng-show="result.database === 'true'">
