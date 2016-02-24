@@ -57,6 +57,7 @@ exports.up = function(knex, Promise) {
 				table.string('reviewTitle');
 				table.string('reviewBody');
 				table.string('userName');
+				table.string('WorkTitle');
 			})
 		])
 };
