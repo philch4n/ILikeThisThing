@@ -5,15 +5,12 @@ var app = angular.module('ILikeThis.homepage', []);
 app.controller('RequestController', function($scope, $location, Factory, Globals) {
 
 //different types to populate the dropdown menu
-$scope.types = ['Books', 'Movies', 'Games'];
 $scope.clicked = false;
 //create an empty object to store form data
 $scope.userInput = {
   title: '',
-  type: ''
+  type: 'Books'
 };
-
-$scope.user = {}
 
 $scope.submitForm = function() {
 
@@ -27,6 +24,7 @@ $scope.submitForm = function() {
       };
 
       $scope.results = response.data;
+      console.log('=====', $scope.results)
 
     })
   };

@@ -1,13 +1,13 @@
 var db = require('./db');
-var config = require('../knexfile.js');  
-var env =  process.env.NODE_ENV || 'development';  
-var knex = require('knex')(config[env]); 
+var config = require('../knexfile.js');
+var env =  process.env.NODE_ENV || 'development';
+var knex = require('knex')(config[env]);
 
 
 exports.lookupWork = function(req){
   console.log('inside lookupWork ', req)
-	var title = req.title; 
-	var type = req.type; 
+	var title = req.title;
+	var type = req.type;
 
 	return knex.select('*').from(type).where('title', title)
 	        .then(function(result){
@@ -24,24 +24,20 @@ exports.addWork = function(apiRes){
   console.log('Inside addWork, heres the apiRes sent in: ', apiRes)
 
   //set the title, depending on work type (API response format)
-  var title; 
+  var title;
   var type = apiRes.type;
   if (type === 'Books'){
     title = apiRes.title;
-  } else if (type === 'Movies'){
-    title = apiRes.Title;
-  } else if (type === 'Games'){
-    title = apiRes.name;
   }
 
   return knex.insert({'title': title, 'type': type}).returning('id').into('Works')
         .then(function(result){
           console.log("after insert, inside .then. this is result: ", result)
           if (type === 'Books'){
-            return knex.insert({'id': result[0], 
-                                'title': title, 
-                                'author': JSON.stringify(apiRes.authors), //an array - could be more than one 
-                                'image': apiRes.largeImage, 
+            return knex.insert({'id': result[0],
+                                'title': title,
+                                'author': JSON.stringify(apiRes.authors), //an array - could be more than one
+                                'image': apiRes.largeImage,
                                 'data': JSON.stringify(apiRes),
                                 'database': "true"})
                 .returning('*')
@@ -51,33 +47,6 @@ exports.addWork = function(apiRes){
                   return result[0];
                 })
           }
-          else if (type === 'Movies'){
-            return knex.insert({'id': result[0], 
-                                'title': title, 
-                                'director': apiRes.Director, 
-                                'image': apiRes.Poster, 
-                                'data': JSON.stringify(apiRes),
-                                'database': "true"})
-                .returning('*')
-                .into('Movies')
-                .then(function(result){
-                  console.log('result from adding a movie', result)
-                  return result[0];
-                })
-          }
-          else if (type === 'Games'){
-            return knex.insert({'id': result[0], 
-                                'title': title,
-                                'image': apiRes.image.medium_url, 
-                                'data': JSON.stringify(apiRes),
-                                'database': "true"})
-                        .returning('*')
-                        .into('Games')
-                        .then(function(result){
-                          console.log('result from adding a game', result)
-                          return result[0];
-                        })
-            }
         })
       .catch(function(error){
         console.error("inserting into Works has failed: ", error);
@@ -87,7 +56,7 @@ exports.addWork = function(apiRes){
 
 exports.findWorks = function(req){
 	var tagsArr = req.tags // => must be array
-  
+
   //first find the tag_ids
   return knex.select('id')
                    .from('Tags')
@@ -95,17 +64,13 @@ exports.findWorks = function(req){
                    .map(function(rows){
                       return rows.id
                    })
-                   .then(function(tagIds){     
+                   .then(function(tagIds){
                   console.log('these are tagIds : ', tagIds);
                   return knex('WorkTag')
-                          .select(['Tags.tag', 'WorkTag.count', 'Works.title', 'Works.type', 
-                                    'Books.author', 'Books.image as bookImage', 'Books.data as bookData', 
-                                    'Movies.director', 'Movies.image as movieImage', 'Movies.data as movieData',
-                                    'Games.image as gameImage', 'Games.data as gameData'])
+                          .select(['Tags.tag', 'WorkTag.count', 'Works.title', 'Works.type',
+                                    'Books.author', 'Books.image as bookImage', 'Books.data as bookData'])
                           .fullOuterJoin('Works', 'Works.id', 'WorkTag.work_id')
                           .leftJoin('Books', 'Books.id', 'WorkTag.work_id')
-                          .leftJoin('Movies', 'Movies.id', 'WorkTag.work_id')
-                          .leftJoin('Games', 'Games.id', 'WorkTag.work_id')
                           .fullOuterJoin('Tags', 'Tags.id', 'WorkTag.tag_id')
                           .whereIn('tag_id', tagIds)
                           .catch(function(err){
@@ -119,7 +84,7 @@ exports.findWorks = function(req){
                             console.log('results of join table ', results)
                             return results;
                           })
-                          
+
                   })
 };
 
@@ -154,7 +119,7 @@ exports.findTags = function(req){
                                       return row.tag; //=> should be returning a flat array of tagnames to filter against users passed in tags
                                      })
                           })
-      })      
+      })
 };
 
 exports.addTags = function(req){
@@ -175,8 +140,8 @@ exports.addTags = function(req){
                 .then(function(row){
                   console.log('right before insert into WorkTag ', row[0].id)
                   var tagId = row[0].id;
-                  knex.insert({'work_id': workId, 
-                               'tag_id': tagId, 
+                  knex.insert({'work_id': workId,
+                               'tag_id': tagId,
                                'count': 1})
                   .returning("*")
                   .into('WorkTag')

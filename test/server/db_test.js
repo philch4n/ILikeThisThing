@@ -34,8 +34,6 @@ describe('database API', function(){
       // knex.migrate.latest().up();
     knex.schema.dropTableIfExists('Works');
     knex.schema.dropTableIfExists('Books');
-    knex.schema.dropTableIfExists('Movies');
-    knex.schema.dropTableIfExists('Games');
     knex.schema.dropTableIfExists('Tags');
     knex.schema.dropTableIfExists('WorkTag');
 
@@ -51,9 +49,8 @@ describe('database API', function(){
       })
       request(app).post('/api/searchworks').send({title: 'Pride and Prejudice', type: 'Books'})
       request(app).post('/api/tags').send({title: 'Pride and Prejudice', tags: ['romance']})
-      request(app).post('/api/searchworks').send({title: 'Human Resource Machine', type: 'Games'})
       request(app).post('/api/tags').send({title: 'Human Resource Machine', tags: ['programming']})
-      
+
     })
 
 
