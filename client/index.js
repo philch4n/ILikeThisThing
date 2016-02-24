@@ -42,15 +42,42 @@ $scope.addToDb = function(apiResp) {
   console.log('Inside addTodb')
 
   Factory.addToDatabase(apiResp)
-  .then(function(res){
-    console.log('database response', res)
-    //now show button to reroute to madlibs
-    Globals.storeTitle(res.title)
-    $scope.clicked = true;
+    .then(function(res){
+      console.log('database response', res)
+      //now show button to reroute to madlibs
+      Globals.storeTitle(res.title)
+      $scope.clicked = true;
 
-  })
+    })
+ };
 
- }
+ $scope.signup = function(username, password){
+  $scope.user.username = username;
+  $scope.user.password = password;
+   Factory.signup($scope.user)
+     .then(function successCallback(response){
+        console.log('RESPONSE AFTER SIGNUP ============', response)
+     })
+     .catch(function(err){
+      console.log('ERROR:', err)
+     })
+
+ };
+
+  $scope.signin = function(username, password){
+  $scope.user.username = username;
+  $scope.user.password = password;
+   Factory.signin($scope.user)
+     .then(function successCallback(response){
+        console.log('RESPONSE AFTER SIGNIN ============', response)
+     })
+     .catch(function(err){
+      console.log('ERROR:', err)
+     })
+
+ };
+
+ 
 
 
 });

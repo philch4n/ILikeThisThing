@@ -11,16 +11,49 @@ factories.factory('Factory', function ($http) {
     })
   };
 
-  var submitUser = function(userObj){
+  var signin = function(userObj){
     return $http({
       method: "POST",
       url: '/api/signin',
       data: userObj
     })
     .then(function(resp){
-      console.log('RESPONSE =======')
+      console.log('signin RESPONSE =======', resp)
     })
-  }
+  };
+
+  var signup = function(userObj){
+    return $http({
+      method: "POST",
+      url: '/api/signup',
+      data: userObj
+    })
+    .then(function(resp){
+      console.log('signUP RESPONSE =======', resp)
+    })
+  };
+
+  var postReview = function(reviewObj){
+    return $http({
+      method: "POST",
+      url: '/api/postRev',
+      data: reviewObj
+    })
+    .then(function(resp){
+      console.log('POSTReview RESPONSE =======', resp)
+    })
+  };
+
+  var getReview = function(title){
+    return $http({
+      method: "GET",
+      url: '/api/getRev',
+      data: title
+    })
+    .then(function(resp){
+      console.log('GETReview RESPONSE =======', resp)
+    })
+  };
 
   var addToDatabase = function(work) {
     return $http({
