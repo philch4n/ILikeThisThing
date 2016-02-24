@@ -189,4 +189,14 @@ exports.addTags = function(req){
                 })
           });
         })
+
+  exports.signUp = function(req) {
+    return knex.insert({userName:req.username, password:req.password}).returning('id').into('Users')
+      .then(function(id){
+        return id;
+      })
+      .catch(function(err){
+        console.error("signup error!", err)
+      })
+  }
 };
