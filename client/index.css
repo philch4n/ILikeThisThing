@@ -8,7 +8,7 @@ header {
 }
 
 body {
-  background: url(images/cityscape.jpg) no-repeat center center fixed;
+  background: url(/images/cityscape.jpg) no-repeat center center fixed;
   background-size: cover;
   text-align: left;
   padding-top: 20px;
@@ -27,12 +27,6 @@ h4 {
   text-align: center;
   color: white;
 }
-
-.question {
-  color: red;
-  font-size: 120%;
- }
-
  .shadowText {
    color: lightgray;
    font-size: 18px;
@@ -50,7 +44,7 @@ h4 {
 }
 
 #logo{
-	height: 50px;
-	width: 50px;
-  float: left;
+	height: 40px;
+	width: 40px;
+  padding-bottom: 20px;
 }
