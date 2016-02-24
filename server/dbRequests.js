@@ -189,4 +189,45 @@ exports.addTags = function(req){
                 })
           });
         })
+
+  exports.signUp = function(req) {
+    return knex.insert({userName:req.username, password:req.password}).returning('id').into('Users')
+      .then(function(id){
+        return id;
+      })
+      .catch(function(err){
+        console.error("signup error!", err)
+      })
+  }
+
+  exports.signIn = function(req) {
+    return knex.select('Users').where({userName:req.username, password:req.password})
+      .then(function(id){
+        return id;
+      })
+      .catch(function(err){
+        console.error("signin error!", err)
+      })
+  }
+
+  exports.getRev = function(req) {
+    return knex.select('Reviews').where({WorkTitle: req.workTitle})
+      .then(function(row) {
+        return row;
+      })
+      .catch(function(err) {
+        console.error("review error!", err)
+      })
+  }
+
+  exports.postRev = function(req) {
+    return knex.insert({WorkTitle: req.workTitle}).returning('id').into('Reviews')
+      .then(function(id) {
+        return id;
+      })
+      .catch(function(err) {
+        console.error("post review error!", err)
+      })
+  }
+
 };

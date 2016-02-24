@@ -44,6 +44,20 @@ exports.up = function(knex, Promise) {
 				table.integer('work_id').references('id').inTable('Works');
 				table.integer('count');
 				table.unique(['tag_id', 'work_id']);
+			}),
+
+			knex.schema.createTableIfNotExists('Users', function(table){
+				table.integer('id').primary();
+				table.string('userName');
+				table.string('password');
+			}),
+
+			knex.schema.createTableIfNotExists('Reviews', function(table){
+				table.integer('id').primary();
+				table.string('reviewTitle');
+				table.string('reviewBody');
+				table.string('userName');
+				table.string('WorkTitle');
 			})
 		])
 };
