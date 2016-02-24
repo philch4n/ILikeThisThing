@@ -13,6 +13,8 @@ $scope.userInput = {
   type: ''
 };
 
+$scope.user = {}
+
 $scope.submitForm = function() {
  
   Factory.submitForm($scope.userInput)

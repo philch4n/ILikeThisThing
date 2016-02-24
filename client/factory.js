@@ -11,6 +11,17 @@ factories.factory('Factory', function ($http) {
     })
   };
 
+  var submitUser = function(userObj){
+    return $http({
+      method: "POST",
+      url: '/api/signin',
+      data: userObj
+    })
+    .then(function(resp){
+      console.log('RESPONSE =======')
+    })
+  }
+
   var addToDatabase = function(work) {
     return $http({
       method: 'POST',
