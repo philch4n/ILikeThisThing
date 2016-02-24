@@ -16,7 +16,7 @@ $scope.userInput = {
 $scope.user = {}
 
 $scope.submitForm = function() {
- 
+
   Factory.submitForm($scope.userInput)
     .then(function successCallback(response) {
       // this callback will be called asynchronously
@@ -27,10 +27,10 @@ $scope.submitForm = function() {
       };
 
       $scope.results = response.data;
-      console.log($scope.results);
+
     })
   };
- 
+
  $scope.alreadyExists = function(title) {
   Globals.storeTitle(title);
   //now reroute to madlibs
@@ -77,8 +77,7 @@ $scope.addToDb = function(apiResp) {
 
  };
 
- 
+
 
 
 });
-

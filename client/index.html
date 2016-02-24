@@ -12,12 +12,6 @@
 <div ng-app="ILikeThis.homepage">
 <div ng-controller="RequestController as request">
 
-  <form id="header-signin">
-      <input type="text" class="form-control" placeholder="Username"/>
-      <input type="password" placeholder="Password"/>
-      <button class='btn btn-success'>Sign In</button>
-  </form>
-
  <header id="top" class="header" style="text-align: center">
    <div>
     <h1 class="animated fadeInDown">Welcome to BlueShell.io <a class="navbar-brand" href="/">
@@ -109,6 +103,7 @@
 
         <!-- date  for games -->
         <div ng-show="result.type ==='Games'">Released: {{result.original_release_date}}</div>
+
       </span>
       </li>
 
