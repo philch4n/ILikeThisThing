@@ -20,7 +20,7 @@
   </div>
     <br>
 
-    <form name="titleAndTypeSubmissionForm" novalidate>
+    <form name="titleAndTypeSubmissionForm" ng-submit="submitForm()" novalidate>
         <!-- add an ajax request that routes through the AlreadyIncludedCheck on submission -->
        <!--  <div class="form-group"> -->
       <input type="text"
@@ -29,7 +29,6 @@
         placeholder="Enter a book you like here"
         style="width:320px">
     <div class="col-sm-offset-2 col-sm-10">
-      <button type="submit" ng-click="submitForm()" class="btn btn-success">Submit</button>
     </div>
    <!--    <span>{{userInput}}</span> -->
     </form>
