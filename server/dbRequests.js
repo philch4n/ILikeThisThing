@@ -199,4 +199,14 @@ exports.addTags = function(req){
         console.error("signup error!", err)
       })
   }
+
+  exports.signIn = function(req) {
+    return knex.select({userName:req.username, password:req.password})
+      .then(function(id){
+        return id;
+      })
+      .catch(function(err){
+        console.error("signin error!", err)
+      })
+  }
 };
