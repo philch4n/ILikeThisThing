@@ -3,23 +3,26 @@
   <section id="results" class="individual">
     
     <a ng-href="{{work.bookData.infoLink}}"><img class="individual-thumb" ng-src="{{work.thumbnail}}"></a>
-    <p class="individual-tags">Tags: {{work.tag}}</p>
-    <br></br>
-    <p class="individual-title">{{work.title}}</p>
-    <p class="individual-author">Author(s): {{work.author}}</p>
-    <p class="individual-publisher">Publisher: {{work.publisher}}</p>
+
+    <p class="individual-title"><b>{{work.title}}</b></p><br>
+    <p class="individual-author"><b>Author(s):</b> {{work.author}}</p>
+    <p class="individual-publisher"><b>Publisher:</b> {{work.publisher}}</p>
+    <p class="individual-tags"><b>Tags:</b> {{work.tag}}</p>
     
-    <p class="individual-description">Description: {{work.description}}</p>
-    <a href='#' ng-click='toggleBeans=!toggleBeans'>Write a review</a>
-    <form ng-show='toggleBeans' ng-submit='postReview()'>
-      <input type='text' ng-model='userName' placeholder='Your Name'></input>
-      <input type='text' ng-model='writeTitle' placeholder='Title of Review'></input>
-      <textarea ng-model='writeBody' placeholder='Type Here...'></textarea>
-      <button type='submit'>Submit Review</button>
-    </form>
-    <a href='#' ng-click='booBeans=!booBeans'>User Reviews</a>
-    <div id='allReviews' ng-show='booBeans'></div>
+    <p class="individual-description"><b>Description:</b> {{work.description}}</p>
+
+    <div class="review-wrapper">
+      <button ng-click='toggleBeans=!toggleBeans' class="review-button">Write a review</button>
+      <form ng-show='toggleBeans' ng-submit='postReview()'>
+        <input type='text' ng-model='userName' placeholder='Your Name'></input>
+        <input type='text' ng-model='writeTitle' placeholder='Title of Review'></input>
+        <textarea ng-model='writeBody' placeholder='Type Here...'></textarea>
+        <button type='submit' class="review-button">Submit Review</button>
+      </form>
+      <button ng-click='booBeans=!booBeans' class="review-button">User Reviews</button>
+      <div id='allReviews' ng-show='booBeans'></div>
     </div>
+
   </section>
 
 </div>

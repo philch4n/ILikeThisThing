@@ -66,11 +66,13 @@ h4 {
   background-color: rgba(50, 50, 50, 0.75);
   border-radius: 10px;
   font-size: 1.5em;
-  font-weight: bold;
+  
 }
+
 .result-thumb{
   padding: 5px;
 }
+
 .individual{
   padding: 10px;
   background-color: rgba(211, 211, 211, 0.75);
@@ -78,15 +80,43 @@ h4 {
   margin: 0 auto;
   border-radius: 1em;
   font-size: 1.5em;
-  font-weight: bold;
-}
+  font-family: Helvetica;
+  font-style: bold;
+  overflow: auto;
+ }
 
 .individual-thumb{
   float: left;
   padding: 10px;
   border-radius: 2em;
-  
+  height: 350px;
+  width: 250px;
+}
 
+.individual-title{
+  padding: 10px;
+  font-size: 2em;
+  font-weight: bolder;
+}
+
+.individual-description{
+  float: left;
+}
+
+.review-wrapper{
+  float: left;
+}
+
+.review-button{
+    background-color: white;
+    padding: 12px 28px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border: 2px solid black;
+    border-radius: 10px;
+    box-shadow: 5px 5px 2px #888888
 }
 
 
