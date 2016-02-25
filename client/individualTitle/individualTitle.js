@@ -18,4 +18,5 @@ app.controller('IndivController', function($scope, $location, Globals, Factory){
 	}
 
 	$scope.getReview();
+
 })
