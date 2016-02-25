@@ -26,7 +26,7 @@ $scope.submitForm = function() {
       // $scope.results = response.data;
       // console.log('=====', $scope.results.authors.split(", "))
 
-  
+
       $scope.results = response.data.map(function(item){
         var authorArray = item.authors.join(', ')
         return {title: item.title,
@@ -45,7 +45,6 @@ $scope.submitForm = function() {
  $scope.alreadyExists = function(title) {
   Globals.storeTitle(title.title);
   //now reroute to madlibs
-  console.log("tst==========",title)
   $scope.clicked = true;
  }
 

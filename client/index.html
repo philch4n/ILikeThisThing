@@ -54,7 +54,7 @@
       <!-- <span class="shadowText"> -->
         <ul class="inDbAlready search-result" ng-show="result.database === 'true'" style="list-style-type:none; background-color: rgba(211, 211, 211, 0.75);">
 
-          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>
+          <li class='result-thumb'><a href="#/individual"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>
 
           <!-- title for books -->
           <li>Title: {{result.title}}</button></a></li>
@@ -71,7 +71,7 @@
 
         <ul class="notInDbYet search-result" ng-hide="result.database === 'true'" style="list-style-type:none; background-color: rgba(211, 211, 211, 0.75);">
 
-          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result)"><img src="{{result.thumbnail}}"/></button></a></li>
+          <li class='result-thumb'><a href="#/individual"><button ng-click="alreadyExists(result)"><img src="{{result.thumbnail}}"/></button></a></li>
 
           <!-- title for books -->
           <li ng-show="result.type === 'Books'">Title:  {{result.title}}</li>
