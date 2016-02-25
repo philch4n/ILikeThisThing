@@ -18,7 +18,7 @@
 <body ng-app="ILikeThis.homepage">
 <div ng-controller="RequestController as request">
 
- <div id="top" class="header" style="text-align: center"> 
+ <div id="top" class="header" style="text-align: center">
     <h1 class="animated fadeInDown">Welcome to BlueShell.io <a class="navbar-brand" href="/">
           <img alt="Brand" id="logo" src="images/blue-shell3.png">
         </a></h1>
@@ -44,10 +44,9 @@
 
 
   <div ng-hide="clicked" style="list-style-type:none;">
-    
+
     <h4 ng-show="results[0].workNotFound === true" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Try Another Title</h4>
 
-    <div class="question" ng-show="results.length > 1" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Sweet. Just so we're sure, which of these works did you mean?</div>
     <br>
 
     <div class="results-container" style="width: 500px; margin: 0 auto; border-radius: 2em;">
@@ -55,7 +54,7 @@
       <!-- <span class="shadowText"> -->
         <ul class="inDbAlready search-result" ng-show="result.database === 'true'" style="list-style-type:none; background-color: rgba(211, 211, 211, 0.75);">
 
-          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>    
+          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>
 
           <!-- title for books -->
           <li>Title: {{result.title}}</button></a></li>
@@ -72,7 +71,7 @@
 
         <ul class="notInDbYet search-result" ng-hide="result.database === 'true'" style="list-style-type:none; background-color: rgba(211, 211, 211, 0.75);">
 
-          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>  
+          <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result)"><img src="{{result.thumbnail}}"/></button></a></li>
 
           <!-- title for books -->
           <li ng-show="result.type === 'Books'">Title:  {{result.title}}</li>
@@ -103,11 +102,11 @@
           <liclass="result-title">{{result.title}}</li>
           <li class="result-author">Authors: {{result.author}}</li>
           <li class="result-published">Published: {{result.publishedDate}}</li>
-      
+
       </ul>
-    
+
     </div> -->
-  
+
   </div>
 
 
