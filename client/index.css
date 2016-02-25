@@ -63,7 +63,8 @@ h4 {
   padding: 8px;
   text-align: center;
   width: 300px;
-  background-color: lightgray;
+  background-color: rgba(50, 50, 50, 0.75);
+  border-radius: 10px;
 }
 .result-thumb{
   padding: 5px;
