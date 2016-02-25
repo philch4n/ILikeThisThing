@@ -100,11 +100,12 @@ factories.factory('Globals', function(){
   var title;
   var recs;
   var indiv;
+  var storage = {};
 
   //takes the title and stores it
   var storeTitle = function(newTitle){
-    title = newTitle;
-    console.log('title has been stored ', title)
+    storage = newTitle;
+    console.log('title has been stored ', storage)
   }
 
   //serves up the title to controllers that need it
@@ -118,8 +119,8 @@ factories.factory('Globals', function(){
   }
   //serves the recomendations to the controllers that need it
   var returnRecs = function(){
-    console.log('returning recs', recs)
-    return recs;
+    console.log('returning storage', storage)
+    return storage;
   }
 
   //stores the clicked on id
@@ -139,6 +140,7 @@ factories.factory('Globals', function(){
     storeRecs: storeRecs,
     returnRecs: returnRecs,
     storeIndiv: storeIndiv,
-    returnIndiv: returnIndiv
+    returnIndiv: returnIndiv,
+    storage: storage
   }
 })
