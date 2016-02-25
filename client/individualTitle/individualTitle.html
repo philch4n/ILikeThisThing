@@ -1,14 +1,15 @@
-<div ng-controller='IndivController' style="background-color:white; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;">
-  <section id="results" class="individual" style="text-align: center">
-    <div ng-show="work.type === 'Books'">
-    <p class="shadowText">Tag: {{work.tag}}</p>
+<div ng-controller='IndivController'>
+  <div ng-show="work.type === 'Books'">
+  <section id="results" class="individual">
+    
+    <a ng-href="{{work.bookData.infoLink}}"><img class="individual-thumb" ng-src="{{work.thumbnail}}"></a>
+    <p class="individual-tags">Tags: {{work.tag}}</p>
     <br></br>
-    <p class="shadowText">Title: {{work.title}}</p>
-    <p class="shadowText">Author(s): {{work.author}}</p>
-    <p class="shadowText">Publisher: {{work.bookData.publisher}}</p>
-    <a class="shadowText" ng-href="{{work.bookData.infoLink}}"><img class="cover" ng-src="{{work.bookImage}}"></a>
-    <p class="shadowText">Pages: {{work.bookData.pageCount}}</p>
-    <p class="shadowText">Description: {{work.bookData.description}}</p>
+    <p class="individual-title">{{work.title}}</p>
+    <p class="individual-author">Author(s): {{work.author}}</p>
+    <p class="individual-publisher">Publisher: {{work.publisher}}</p>
+    
+    <p class="individual-description">Description: {{work.description}}</p>
     <a href='#' ng-click='toggleBeans=!toggleBeans'>Write a review</a>
     <form ng-show='toggleBeans' ng-submit='postReview()'>
       <input type='text' ng-model='userName' placeholder='Your Name'></input>
@@ -21,4 +22,4 @@
     </div>
   </section>
 
-  </div>
+</div>

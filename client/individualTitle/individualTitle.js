@@ -1,8 +1,8 @@
 var app = angular.module('ILikeThis.individualTitle', []);
 
-app.controller('IndivController', function($scope, $rootScope, $location, Globals, Factory){
-	$scope.work = Globals.returnIndiv()
-	console.log('moved to indivController')
+app.controller('IndivController', function($scope, $location, Globals, Factory){
+	$scope.work = Globals.returnRecs();
+	console.log('moved to indivController', $scope.work)
 
 	$scope.toggleBeans = false;
 	$scope.booBeans = false;
@@ -10,7 +10,7 @@ app.controller('IndivController', function($scope, $rootScope, $location, Global
 	$scope.writeBody;
 	$scope.allReviews;
 
-	$scope.results = $rootScope.results
+	
 
 	$scope.postReview = function(){
 
@@ -25,4 +25,5 @@ app.controller('IndivController', function($scope, $rootScope, $location, Global
 	}
 
 	$scope.getReview();
+
 })
