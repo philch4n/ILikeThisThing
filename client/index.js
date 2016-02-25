@@ -19,8 +19,6 @@ $scope.submitForm = function() {
     .then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
-      console.log("RESPONSE from SubmiteFrom===============",response.data);
-
       if (!!response.data.database) {
         response.data = [response.data];
       };
@@ -28,29 +26,26 @@ $scope.submitForm = function() {
       // $scope.results = response.data;
       // console.log('=====', $scope.results.authors.split(", "))
 
+  
       $scope.results = response.data.map(function(item){
         var authorArray = item.authors.join(', ')
         return {title: item.title,
                 author: authorArray,
                 publishedDate: item.publishedDate,
                 thumbnail: item.imageLinks.smallThumbnail,
-                type: item.type
+                type: item.type,
+                description: item.description,
+                publisher: item.publisher
               }
       })
-
-      // $scope.resultsArray = [
-      // [$scope.results[0], $scope.results[1], $scope.results[2]],
-      // [$scope.results[3], $scope.results[4], $scope.results[5]],
-      // [$scope.results[6], $scope.results[7], $scope.results[8]],
-      // ];
-
 
     })
   };
 
  $scope.alreadyExists = function(title) {
-  Globals.storeTitle(title);
+  Globals.storeTitle(title.title);
   //now reroute to madlibs
+  console.log("tst==========",title)
   $scope.clicked = true;
  }
 
