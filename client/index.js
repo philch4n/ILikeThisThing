@@ -25,18 +25,24 @@ $scope.submitForm = function() {
         response.data = [response.data];
       };
 
-      $scope.results = response.data;
+      // $scope.results = response.data;
       // console.log('=====', $scope.results.authors.split(", "))
 
-      $scope.resultsArray = response.data.map(function(item){
+      $scope.results = response.data.map(function(item){
         var authorArray = item.authors.join(', ')
         return {title: item.title,
-                authors: authorArray,
-                published: item.publishedDate,
-                thumbnail: item.imageLinks.smallThumbnail
+                author: authorArray,
+                publishedDate: item.publishedDate,
+                thumbnail: item.imageLinks.smallThumbnail,
+                type: item.type
               }
       })
 
+      // $scope.resultsArray = [
+      // [$scope.results[0], $scope.results[1], $scope.results[2]],
+      // [$scope.results[3], $scope.results[4], $scope.results[5]],
+      // [$scope.results[6], $scope.results[7], $scope.results[8]],
+      // ];
 
 
     })
