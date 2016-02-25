@@ -9,6 +9,8 @@
     <a class="shadowText" ng-href="{{work.bookData.infoLink}}"><img class="cover" ng-src="{{work.bookImage}}"></a>
     <p class="shadowText">Pages: {{work.bookData.pageCount}}</p>
     <p class="shadowText">Description: {{work.bookData.description}}</p>
+    <a href='#' ng-click='toggleBeans=!toggleBeans'>Write a review</a>
+    <form ng-show='toggleBeans'>Whatever</form>
     </div>
   </section>
 
