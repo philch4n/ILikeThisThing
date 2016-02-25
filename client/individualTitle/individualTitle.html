@@ -10,7 +10,14 @@
     <p class="shadowText">Pages: {{work.bookData.pageCount}}</p>
     <p class="shadowText">Description: {{work.bookData.description}}</p>
     <a href='#' ng-click='toggleBeans=!toggleBeans'>Write a review</a>
-    <form ng-show='toggleBeans'>Whatever</form>
+    <form ng-show='toggleBeans' ng-submit='postReview()'>
+      <input type='text' ng-model='userName' placeholder='Your Name'></input>
+      <input type='text' ng-model='writeTitle' placeholder='Title of Review'></input>
+      <textarea ng-model='writeBody' placeholder='Type Here...'></textarea>
+      <button type='submit'>Submit Review</button>
+    </form>
+    <a href='#' ng-click='booBeans=!booBeans'>User Reviews</a>
+    <div id='allReviews' ng-show='booBeans'></div>
     </div>
   </section>
 
