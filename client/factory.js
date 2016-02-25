@@ -11,27 +11,27 @@ factories.factory('Factory', function ($http) {
     })
   };
 
-  var signin = function(userObj){
-    return $http({
-      method: "POST",
-      url: '/api/signin',
-      data: userObj
-    })
-    .then(function(resp){
-      console.log('signin RESPONSE =======', resp)
-    })
-  };
+  // var signin = function(userObj){
+  //   return $http({
+  //     method: "POST",
+  //     url: '/api/signin',
+  //     data: userObj
+  //   })
+  //   .then(function(resp){
+  //     console.log('signin RESPONSE =======', resp)
+  //   })
+  // };
 
-  var signup = function(userObj){
-    return $http({
-      method: "POST",
-      url: '/api/signup',
-      data: userObj
-    })
-    .then(function(resp){
-      console.log('signUP RESPONSE =======', resp)
-    })
-  };
+  // var signup = function(userObj){
+  //   return $http({
+  //     method: "POST",
+  //     url: '/api/signup',
+  //     data: userObj
+  //   })
+  //   .then(function(resp){
+  //     console.log('signUP RESPONSE =======', resp)
+  //   })
+  // };
 
   var postReview = function(reviewObj){
     return $http({
@@ -41,6 +41,9 @@ factories.factory('Factory', function ($http) {
     })
     .then(function(resp){
       console.log('POSTReview RESPONSE =======', resp)
+    })
+    .catch(function(err){
+      console.log('err!!',err)
     })
   };
 
@@ -52,6 +55,9 @@ factories.factory('Factory', function ($http) {
     })
     .then(function(resp){
       console.log('GETReview RESPONSE =======', resp)
+    })
+    .catch(function(err){
+      console.log('err!!!',err)
     })
   };
 
@@ -84,7 +90,9 @@ factories.factory('Factory', function ($http) {
    return {
     submitForm: submitForm,
     getMatchingTags: getMatchingTags,
-    addToDatabase: addToDatabase
+    addToDatabase: addToDatabase,
+    postReview: postReview,
+    getReview: getReview
   };
 });
 
