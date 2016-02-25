@@ -10,11 +10,18 @@ app.controller('IndivController', function($scope, $location, Globals, Factory){
 	$scope.writeBody;
 	$scope.allReviews;
 
+	
+
 	$scope.postReview = function(){
 
 	}
 	$scope.getReview = function(){
 		//request will return array of object rows
+	}
+
+	$scope.dosomething = function(){
+		//search $scope.results
+		
 	}
 
 	$scope.getReview();
