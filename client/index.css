@@ -1,4 +1,6 @@
 html {
+    overflow: hidden;
+    height: 100%;
 
 }
 
@@ -13,6 +15,8 @@ body {
   text-align: left;
   padding-top: 20px;
   padding-left: 20px;
+  height: 100%;
+  overflow: auto;
 }
 
 h1 {
@@ -38,6 +42,9 @@ h4 {
   height: 402px;
   width: 279px;
 }
+.title-entry{
+  text-align: center;
+}
 
 #header-signin{
 	margin-left: 70%
@@ -48,3 +55,17 @@ h4 {
 	width: 40px;
   padding-bottom: 20px;
 }
+.results-container{
+  padding: 10px;
+}
+
+.search-result{
+  padding: 8px;
+  text-align: center;
+  width: 300px;
+}
+.result-thumb{
+  padding: 5px;
+}
+
+
