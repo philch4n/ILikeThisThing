@@ -2,7 +2,7 @@
 
 var app = angular.module('ILikeThis.homepage', []);
 
-app.controller('RequestController', function($scope, $location, Factory, Globals) {
+app.controller('RequestController', function($scope, $rootScope, $location, Factory, Globals) {
 
 //different types to populate the dropdown menu
 $scope.clicked = false;
@@ -11,6 +11,8 @@ $scope.userInput = {
   title: '',
   type: 'Books'
 };
+
+$rootScope.results = {};
 
 
 $scope.submitForm = function() {
@@ -38,6 +40,8 @@ $scope.submitForm = function() {
                 publisher: item.publisher
               }
       })
+
+      $rootScope.results = $scope.results;
 
     })
   };
