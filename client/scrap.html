@@ -1,0 +1,27 @@
+       <li ng-repeat="result in results">
+      <span class="shadowText">
+        <div class="inDbAlready" ng-show="result.database === 'true'">
+        <!-- title for books -->
+        <div>Title: <a href="#/tags"><button ng-click="alreadyExists(result.title)">{{result.title}}</button></a></div>
+
+        <!-- person for books -->
+        <div ng-show="result.data.type === 'Books'">Author: {{result.author}}</div>
+
+
+        <!-- date for books -->
+        <div ng-show="result.data.type === 'Books'"> Published: {{result.data.publishedDate}} <br></div>
+
+        </div>
+
+        <div class="notInDbYet" ng-hide="result.database === 'true'"></div>
+           <!-- title for books -->
+        <div ng-show="result.type === 'Books'">Title: <a href="#/tags"><button ng-click="addToDb(result)"> {{result.title}}</button></a></div>
+
+        <!-- person for books -->
+        <div ng-show="result.type === 'Books'">Author: {{result.authors}}</div>
+
+        <!-- date for books -->
+        <div ng-show="result.type === 'Books'">Published: {{result.publishedDate}}</div>
+
+      </span>
+      </li>

@@ -12,19 +12,32 @@ $scope.userInput = {
   type: 'Books'
 };
 
+
 $scope.submitForm = function() {
 
   Factory.submitForm($scope.userInput)
     .then(function successCallback(response) {
       // this callback will be called asynchronously
       // when the response is available
-      console.log(response);
+      console.log("RESPONSE from SubmiteFrom===============",response.data);
+
       if (!!response.data.database) {
         response.data = [response.data];
       };
 
       $scope.results = response.data;
-      console.log('=====', $scope.results)
+      // console.log('=====', $scope.results.authors.split(", "))
+
+      $scope.resultsArray = response.data.map(function(item){
+        var authorArray = item.authors.join(', ')
+        return {title: item.title,
+                authors: authorArray,
+                published: item.publishedDate,
+                thumbnail: item.imageLinks.smallThumbnail
+              }
+      })
+
+
 
     })
   };

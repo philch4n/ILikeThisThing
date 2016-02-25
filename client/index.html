@@ -7,17 +7,21 @@
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css"/>
     <link rel="stylesheet" href="index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.1/animate.min.css" media="screen" title="no title" charset="utf-8">
+    <script src="app.js"></script>
+    <script src="index.js"></script>
+    <script src="factory.js"></script>
+    <script src="madlibs/madLibs.js"></script>
+    <script src="recommendations/recommendations.js"></script>
+    <script src="individualTitle/individualTitle.js"></script>
 </head>
 
-<div ng-app="ILikeThis.homepage">
+<body ng-app="ILikeThis.homepage">
 <div ng-controller="RequestController as request">
 
- <header id="top" class="header" style="text-align: center">
-   <div>
+ <div id="top" class="header" style="text-align: center"> 
     <h1 class="animated fadeInDown">Welcome to BlueShell.io <a class="navbar-brand" href="/">
           <img alt="Brand" id="logo" src="images/blue-shell3.png">
         </a></h1>
-  </div>
     <br>
 
     <form name="titleAndTypeSubmissionForm" ng-submit="submitForm()" novalidate>
@@ -32,56 +36,22 @@
     </div>
    <!--    <span>{{userInput}}</span> -->
     </form>
- </header>
-
-<body>
-  <script src="app.js"></script>
-  <script src="index.js"></script>
-  <script src="factory.js"></script>
-  <script src="madlibs/madLibs.js"></script>
-  <script src="recommendations/recommendations.js"></script>
-  <script src="individualTitle/individualTitle.js"></script>
-
-<ul ng-hide="clicked" style="list-style-type:none">
-  <div class="" style="background-color:white; width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
-      <li ng-repeat="result in results">
-      <span class="shadowText">
-        <div class="inDbAlready" ng-show="result.database === 'true'">
-        <!-- title for books -->
-        <div>Title: <a href="#/tags"><button ng-click="alreadyExists(result.title)">{{result.title}}</button></a></div>
-
-        <!-- person for books -->
-        <div ng-show="result.data.type === 'Books'">Author: {{result.author}}</div>
+ </div>
 
 
-        <!-- date for books -->
-        <div ng-show="result.data.type === 'Books'"> Published: {{result.data.publishedDate}} <br></div>
+<!-- <ul ng-hide="clicked" style="list-style-type:none"> -->
+  <div ng-show="results" class="results-container" style="width: 350px; margin: 0 auto;" >
 
-        </div>
-
-        <div class="notInDbYet" ng-hide="result.database === 'true'"></div>
-           <!-- title for books -->
-        <div ng-show="result.type === 'Books'">Title: <a href="#/tags"><button ng-click="addToDb(result)"> {{result.title}}</button></a></div>
-
-        <!-- person for books -->
-        <div ng-show="result.type === 'Books'">Author: {{result.authors}}</div>
-
-        <!-- date for books -->
-        <div ng-show="result.type === 'Books'">Published: {{result.publishedDate}}</div>
-
-      </span>
-      </li>
-
+    <div ng-repeat='result in resultsArray'>
+      <ul class="search-result" style="list-style-type:none; background-color:white; border-radius: 2em; opacity:0.75;">
+        <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>
+          <liclass="result-title">{{result.title}}</li>
+          <li class="result-author">Authors: {{result.authors}}</li>
+          <li class="result-published">Published: {{result.published}}</li>
+      </ul>
     </div>
-
-
-</ul>
-
-
-<div ng-view></div>
-
+  </div>
+</div>
+</div>
 </body>
-</div>
-</div>
-</div>
 </html>
