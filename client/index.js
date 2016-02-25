@@ -43,7 +43,7 @@ $scope.submitForm = function() {
   };
 
  $scope.alreadyExists = function(title) {
-  Globals.storeTitle(title.title);
+  Globals.storeTitle(title);
   //now reroute to madlibs
   $scope.clicked = true;
  }

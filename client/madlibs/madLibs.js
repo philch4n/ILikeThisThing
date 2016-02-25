@@ -8,7 +8,7 @@ angular.module('ILikeThis.MadLibs', [])
   'Characters-Romantic', 'Characters-Optimistic', 'Characters-Pessimistic', 'Characters-Evil', 'Character Diversity', 'Characters-Heroic', 'Characters-Unreliable Narrator', 'Characters-Great Antagonist'];
   $scope.settings = ['Setting-Outer Space', 'Setting-New York', 'Setting-Texas', 'Setting-Fantasy world', 'Setting-Space Station', 'Setting-Europe', 'Setting-Asia',
   'Setting-North America', 'Setting-South America', 'Setting-Australia', 'Setting-Antarctica'];
-  $scope.genres = ['Genre-Action', 'Genre-Adventure', 'Genre-Comedy', 'Genre-Crime', 'Genre-Fantasy', 'Genre-Horror', 'Genre-Musical', 
+  $scope.genres = ['Genre-Action', 'Genre-Adventure', 'Genre-Comedy', 'Genre-Crime', 'Genre-Fantasy', 'Genre-Horror', 'Genre-Musical',
   'Genre-Mystery', 'Genre-Political', 'Genre-Romance', 'Genre-Satire', 'Genre-Science Fiction', 'Genre-Thriller', 'Genre-Western'];
   $scope.writingStyle = ['Writing Style-Stream of Consciousness', 'Writing Style-Vignette'];
   $scope.time = ['Time Period-Present Day', 'Time Period-1800s', 'Time Period-Medieval times', 'Time Period-Prehistoric times', 'Time Period-Time Travel', 'Time Period-Antiquity',
@@ -54,4 +54,3 @@ angular.module('ILikeThis.MadLibs', [])
 });
 // $window.location.href('/#/recommendations');
 //    	$location.path('/#/recommendations');
-

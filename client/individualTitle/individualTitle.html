@@ -5,10 +5,9 @@
     <br></br>
     <p class="shadowText">Title: {{work.title}}</p>
     <p class="shadowText">Author(s): {{work.author}}</p>
-    <p class="shadowText">Publisher: {{work.bookData.publisher}}</p>
-    <a class="shadowText" ng-href="{{work.bookData.infoLink}}"><img class="cover" ng-src="{{work.bookImage}}"></a>
-    <p class="shadowText">Pages: {{work.bookData.pageCount}}</p>
-    <p class="shadowText">Description: {{work.bookData.description}}</p>
+    <p class="shadowText">Publisher: {{work.publisher}}</p>
+    <a class="shadowText" ng-href="{{work.bookData.infoLink}}"><img class="cover" ng-src="{{work.thumbnail}}"></a>
+    <p class="shadowText">Description: {{work.description}}</p>
     <a href='#' ng-click='toggleBeans=!toggleBeans'>Write a review</a>
     <form ng-show='toggleBeans' ng-submit='postReview()'>
       <input type='text' ng-model='userName' placeholder='Your Name'></input>
