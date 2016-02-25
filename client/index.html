@@ -42,16 +42,72 @@
 <!-- <ul ng-hide="clicked" style="list-style-type:none"> -->
   <div ng-show="results" class="results-container" style="width: 350px; margin: 0 auto;" >
 
-    <div ng-repeat='result in resultsArray'>
+
+  <ul ng-hide="clicked" style="list-style-type:none;">
+    
+    <h4 ng-show="results[0].workNotFound === true" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Try Another Title</h4>
+
+    <div class="question" ng-show="results.length > 1" style="color: lightgray; text-align:center; margin: 0 auto; background-color: darkred; width: 500px;">Sweet. Just so we're sure, which of these works did you mean?</div>
+    <br>
+
+    <div class="results-container" style="width: 500px; margin: 0 auto; border-radius: 2em; opacity:0.75;" >
+      <li ng-repeat="result in results" class='search-result'>
+      <!-- <span class="shadowText"> -->
+        <div class="inDbAlready" ng-show="result.database === 'true'">
+
+        <div class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></div>    
+
+        <!-- title for books -->
+        <div>Title: {{result.title}}</button></a></div>
+
+        <!-- person for books -->
+        <div ng-show="resulttype === 'Books'">Author: {{result.author}}</div>
+
+        <!-- date for books -->
+        <div ng-show="result.data.type === 'Books'"> Published: {{result.publishedDate}} <br></div>
+
+        </div>
+
+        <div class="notInDbYet" ng-hide="result.database === 'true'"></div>
+
+        <div class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></div>  
+
+        <!-- title for books -->
+        <div ng-show="result.type === 'Books'">Title:  {{result.title}}</div>
+
+        <!-- person for books -->
+        <div ng-show="result.type === 'Books'">Author: {{result.author}}</div>
+
+        <!-- date for books -->
+        <div ng-show="result.type === 'Books'">Published: {{result.publishedDate}}</div>
+
+
+      <!-- </span> -->
+      </li>
+
+    </div>
+
+
+</ul>
+
+
+<!--     <div ng-repeat='result in resultsArray'>
+
       <ul class="search-result" style="list-style-type:none; background-color:white; border-radius: 2em; opacity:0.75;">
+
         <li class='result-thumb'><a href="#/tags"><button ng-click="alreadyExists(result.title)"><img src="{{result.thumbnail}}"/></button></a></li>
           <liclass="result-title">{{result.title}}</li>
-          <li class="result-author">Authors: {{result.authors}}</li>
-          <li class="result-published">Published: {{result.published}}</li>
+          <li class="result-author">Authors: {{result.author}}</li>
+          <li class="result-published">Published: {{result.publishedDate}}</li>
+      
       </ul>
-    </div>
+    
+    </div> -->
+  
   </div>
-</div>
+
+
+<div ng-view></div>
 </div>
 </body>
 </html>
