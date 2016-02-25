@@ -95,33 +95,51 @@ routes.use(express.static(assetFolder));
       })
   })
 
-  routes.post('/api/signup', function(req, res) {
-    db.signUp(req.body)
-      .then(function(id) {
-        console.log('this is the id', id)
+  // routes.post('/api/signup', function(req, res) {
+  //   db.signUp(req.body)
+  //     .then(function(id) {
+  //       console.log('this is the id', id)
+  //       res.status(200).send(id)
+  //     })
+  //     .catch(function(err) {
+  //       console.log('this is the error', err)
+  //       res.status(404).send
+  //     })
+  // })
+
+  // routes.post('/api/signin', function(req, res) {
+  //   db.signIn(req.body)
+  //     .then(function(id) {
+  //       console.log('this is the id', id)
+  //       res.status(200).send(id)
+  //     })
+  //     .catch(function(err) {
+  //       console.log('this is the error', err)
+  //       res.status(404).send
+  //     })
+  // })
+
+  routes.post('/api/postRev', function(req, res) {
+    db.postRev(req.body)
+      .then(function(id){
         res.status(200).send(id)
       })
-      .catch(function(err) {
-        console.log('this is the error', err)
-        res.status(404).send
+      .catch(function(err){
+        throw new Error(err);
+      })
+
+  })
+
+  routes.get('/api/getRev', function(req, res) {
+    db.getRev(req.body)
+      .then(function(row){
+        res.status(200).send(row)
+      })
+      .catch(function(err){
+        throw new Error(err);
       })
   })
 
-  routes.post('/api/signin', function(req, res) {
-    db.signIn(req.body)
-      .then(function(id) {
-        console.log('this is the id', id)
-        res.status(200).send(id)
-      })
-      .catch(function(err) {
-        console.log('this is the error', err)
-        res.status(404).send
-      })
-  })
-
-  routes.post('/api/getRev', function(req, res) {
-
-  })
   // The Catch-all Route
   // This is for supporting browser history pushstate.
   // NOTE: Make sure this route is always LAST.
