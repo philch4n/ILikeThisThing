@@ -3,13 +3,15 @@
   <section id="results" class="individual">
     
     <a ng-href="{{work.bookData.infoLink}}"><img class="individual-thumb" ng-src="{{work.thumbnail}}"></a>
-
-    <p class="individual-title"><b>{{work.title}}</b></p><br>
-    <p class="individual-author"><b>Author(s):</b> {{work.author}}</p>
-    <p class="individual-publisher"><b>Publisher:</b> {{work.publisher}}</p>
-    <p class="individual-tags"><b>Tags:</b> {{work.tag}}</p>
-    
-    <p class="individual-description"><b>Description:</b> {{work.description}}</p>
+    <div class="individual-text-wrapper">
+      <p class="individual-title"><b>{{work.title}}</b></p><br>
+      <p class="individual-author"><b>Author(s):</b> {{work.author}}</p>
+      <p class="individual-publisher"><b>Publisher:</b> {{work.publisher}}</p>
+      <p class="individual-tags"><b>Tags:</b> {{work.tag}}</p><br><br>
+      <hr>
+      
+      <p class="individual-description"><b>Description:</b> {{work.description}}</p>
+  </div>
 
     <div class="review-wrapper">
       <button ng-click='toggleBeans=!toggleBeans' class="review-button">Write a review</button>
