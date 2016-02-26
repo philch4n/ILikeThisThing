@@ -25,7 +25,6 @@ $scope.submitForm = function() {
         response.data = [response.data];
       };
 
-      console.log("book api info", response)
       // $scope.results = response.data;
       // console.log('=====', $scope.results.authors.split(", "))
 
