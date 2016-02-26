@@ -10,21 +10,30 @@
     <p class="individual-publisher">Publisher: {{work.publisher}}</p>
     
     <p class="individual-description">Description: {{work.description}}</p>
+    <iframe
+      src="https://platform.twitter.com/widgets/tweet_button.html?size=l&url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&via=twitterdev&related=twitterapi%2Ctwitter&text=custom%20share%20text&hashtags=example%2Cdemo"
+      width="140"
+      height="28"
+      title="Twitter Tweet Button"
+      style="border: 0; overflow: hidden;">
+    </iframe>
     <div ng-click='toggleBeans=!toggleBeans'>Write a review</div>
     <form ng-show='toggleBeans' ng-submit='postReview()'>
       <input type='text' ng-model='userName' placeholder='Your Name'/>
       <input type='text' ng-model='writeTitle' placeholder='Title of Review'/>
       <textarea ng-model='writeBody' placeholder='Type Here...'></textarea>
+
       <button type='submit'>Submit Review</button>
     </form>
     <div ng-click='booBeans=!booBeans'>User Reviews</div>
-    <div id='allReviews' ng-show='booBeains'>
-      <ul ng-repeat="rev in allReviews">
-        <li>{{ rev.username }}</li>
-        <li>{{ rev.title }}</li>
-        <li>{{ rev.body }}</li>
-      </ul>
+    <div id='allReviews' ng-show='booBeans'>
+      <div ng-repeat="rev in allReviews">
+        <div>{{ rev.username }}</div>
+        <div>{{ rev.reviewtitle }}</div>
+        <div>{{ rev.reviewbody }}</div  >
+      </div>
     </div>
+  </div>
   </section>
 
 </div>

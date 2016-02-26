@@ -57,7 +57,7 @@ factories.factory('Factory', function ($http) {
     })
     .then(function(resp){
       console.log('GETReview RESPONSE =======', resp)
-      return resp;
+      return resp.data;
     })
     .catch(function(err){
       console.log('err!!!',err)

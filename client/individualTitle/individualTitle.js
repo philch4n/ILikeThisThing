@@ -35,7 +35,7 @@ app.controller('IndivController', function($scope, $location, Globals, Factory){
 		var obj = {workTitle: $scope.work.title}
 		Factory.getReview(obj)
 			.then(function(reviews){
-				$scope.allReviews = reviews
+				$scope.allReviews = reviews;
 				console.log("ALL THE REVIEWS", $scope.allReviews)
 			})
 			.catch(function(err){
