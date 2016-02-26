@@ -80,11 +80,20 @@ h4 {
   margin: 0 auto;
   border-radius: 1em;
   font-size: 1.5em;
-  font-family: Helvetica;
-  font-style: bold;
   overflow: auto;
+  word-spacing: 2px;
  }
-
+ 
+ hr{
+    border: 2px solid black;
+/*    display: block;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: inset;
+    border-width: 1px;*/
+ }
 .individual-thumb{
   float: left;
   padding: 10px;
@@ -99,8 +108,8 @@ h4 {
   font-weight: bolder;
 }
 
-.individual-description{
-  float: left;
+.individual-text-wrapper{
+  
 }
 
 .review-wrapper{
