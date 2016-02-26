@@ -130,9 +130,11 @@ routes.use(express.static(assetFolder));
 
   })
 
-  routes.get('/api/getRev', function(req, res) {
+  routes.post('/api/getRev', function(req, res) {
+    console.log("API REQ BODY", req)
     db.getRev(req.body)
       .then(function(row){
+        console.log("POST /api/ row", row)
         res.status(200).send(row)
       })
       .catch(function(err){

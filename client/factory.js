@@ -49,13 +49,15 @@ factories.factory('Factory', function ($http) {
   };
 
   var getReview = function(title){
+    console.log("GET REVIEW TITLE", title);
     return $http({
-      method: "GET",
+      method: "POST",
       url: '/api/getRev',
       data: title
     })
     .then(function(resp){
       console.log('GETReview RESPONSE =======', resp)
+      return resp;
     })
     .catch(function(err){
       console.log('err!!!',err)
