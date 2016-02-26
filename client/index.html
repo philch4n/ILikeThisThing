@@ -16,6 +16,14 @@
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700' rel='stylesheet' type='text/css'>
 </head>
 <body ng-app="ILikeThis.homepage">
+  <div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.5";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 
 <div ng-controller="RequestController as request">
 
@@ -25,8 +33,6 @@
         </a></h1>
     <br>
     
-
-
     <form name="titleAndTypeSubmissionForm" ng-submit="submitForm()" novalidate>
         <!-- add an ajax request that routes through the AlreadyIncludedCheck on submission -->
        <!--  <div class="form-group"> -->
@@ -40,6 +46,16 @@
    <!--    <span>{{userInput}}</span> -->
     </form>
  </div>
+
+ <ul>
+ <div class="twitterButton">
+    <li><a href="https://twitter.com/blueshellatx" class="twitter-follow-button" data-show-count="false">Follow @blueshellatx</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script></li></div>
+  <li><div class="fb-like" data-href="https://www.facebook.com/Blue-Shell-1523438461286306/" data-layout="button" data-action="like" data-show-faces="true" data-share="true"></li></div>
+  <li><div class="gitFork">
+    <iframe src="https://ghbtns.com/github-btn.html?user=backofthebus&repo=ILikeThisThing&type=fork&count=true" frameborder="0" scrolling="0" width="170px" height="20px"></iframe>
+  </div></li>
+  </ul>
 
 
 <!-- <ul ng-hide="clicked" style="list-style-type:none"> -->
