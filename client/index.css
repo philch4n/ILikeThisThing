@@ -46,6 +46,9 @@ h4 {
   text-align: center;
 }
 
+#fb-like{
+}
+
 #header-signin{
 	margin-left: 70%
 }
@@ -66,7 +69,7 @@ h4 {
   background-color: rgba(50, 50, 50, 0.75);
   border-radius: 10px;
   font-size: 1.5em;
-  
+
 }
 
 .result-thumb{
@@ -83,7 +86,7 @@ h4 {
   overflow: auto;
   word-spacing: 2px;
  }
- 
+
  hr{
     border: 2px solid black;
 /*    display: block;
@@ -93,7 +96,11 @@ h4 {
     margin-right: auto;
     border-style: inset;
     border-width: 1px;*/
+    font-family: Helvetica;
+    font-style: bold;
+    overflow: auto;
  }
+
 .individual-thumb{
   float: left;
   padding: 10px;
@@ -108,8 +115,13 @@ h4 {
   font-weight: bolder;
 }
 
+<<<<<<< HEAD
 .individual-text-wrapper{
-  
+
+=======
+.individual-description{
+  float: left;
+>>>>>>> eb22a24a6c20ea2f530752c035d2b8f827abe8a1
 }
 
 .review-wrapper{
@@ -127,5 +139,3 @@ h4 {
     border-radius: 10px;
     box-shadow: 5px 5px 2px #888888
 }
-
-
