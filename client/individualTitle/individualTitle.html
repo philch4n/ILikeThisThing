@@ -1,4 +1,5 @@
 <div ng-controller='IndivController'>
+
   <div ng-show="work.type === 'Books'">
   <section id="results" class="individual">
     
@@ -10,19 +11,13 @@
     <p class="individual-publisher">Publisher: {{work.publisher}}</p>
     
     <p class="individual-description">Description: {{work.description}}</p>
-    <iframe
-      src="https://platform.twitter.com/widgets/tweet_button.html?size=l&url=https%3A%2F%2Fdev.twitter.com%2Fweb%2Ftweet-button&via=twitterdev&related=twitterapi%2Ctwitter&text=custom%20share%20text&hashtags=example%2Cdemo"
-      width="140"
-      height="28"
-      title="Twitter Tweet Button"
-      style="border: 0; overflow: hidden;">
-    </iframe>
+
     <div ng-click='toggleBeans=!toggleBeans'>Write a review</div>
+
     <form ng-show='toggleBeans' ng-submit='postReview()'>
       <input type='text' ng-model='userName' placeholder='Your Name'/>
       <input type='text' ng-model='writeTitle' placeholder='Title of Review'/>
       <textarea ng-model='writeBody' placeholder='Type Here...'></textarea>
-
       <button type='submit'>Submit Review</button>
     </form>
     <div ng-click='booBeans=!booBeans'>User Reviews</div>
@@ -37,4 +32,7 @@
   </section>
 
 </div>
+
+
+
 </div>
