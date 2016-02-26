@@ -36,11 +36,11 @@ exports.up = function(knex, Promise) {
 			}),
 
 			knex.schema.createTableIfNotExists('Reviews', function(table){
-				table.integer('id').primary();
-				table.string('reviewTitle');
-				table.string('reviewBody');
-				table.string('userName');
-				table.string('WorkTitle');
+				table.increments('id').primary();
+				table.string('reviewtitle');
+				table.string('reviewbody');
+				table.string('username');
+				table.string('worktitle');
 			})
 		])
 };
@@ -50,6 +50,7 @@ exports.down = function(knex, Promise) {
 		knex.schema.dropTable('Works'),
 		knex.schema.dropTable('Books'),
 		knex.schema.dropTable('Tags'),
-		knex.schema.dropTable('WorkTag')
+		knex.schema.dropTable('WorkTag'),
+		knex.schema.dropTable('Reviews')
 	])
 };

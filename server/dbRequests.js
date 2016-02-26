@@ -18,7 +18,7 @@ exports.lookupWork = function(req){
 	          return result; // => returns an array with the object of the found work inside
 	        })
 };
-
+ 
 //called after an apirequest
 exports.addWork = function(apiRes){
   console.log('Inside addWork, heres the apiRes sent in: ', apiRes)
@@ -154,7 +154,7 @@ exports.addTags = function(req){
                 })
           });
         })
-
+}
   // exports.signUp = function(req) {
   //   return knex.insert({userName:req.username, password:req.password}).returning('id').into('Users')
   //     .then(function(id){
@@ -176,7 +176,8 @@ exports.addTags = function(req){
   // }
 
   exports.getRev = function(req) {
-    return knex.select('Reviews').where({WorkTitle: req.workTitle})
+    // console.log("GET REV REQ", req)
+    return knex.select('*').from('Reviews').where({worktitle: req.workTitle})
       .then(function(row) {
         console.log('getRev', row)
         return row;
@@ -191,11 +192,12 @@ exports.addTags = function(req){
     var title = req.title
     var body = req.body
     var username = req.username
-    var book = req.book
-
-    return knex.insert({WorkTitle:book, userName:username, reviewBody: body, reviewTitle:title}).returning('id').into('Reviews')
-      .then(function(id) {
-        return id;
+    var book = req.workTitle
+    // console.log("POST REV REQ", req)
+    return knex.insert({'worktitle':book, 'username':username, 'reviewbody': body, 'reviewtitle':title}).returning('id').into('Reviews')
+      .then(function(res) {
+        // console.log("POST REV SUCCESS res", res)
+        return res.id;
       })
       .catch(function(err) {
         console.error("post review error!", err)
@@ -203,4 +205,3 @@ exports.addTags = function(req){
       })
   }
 
-};
